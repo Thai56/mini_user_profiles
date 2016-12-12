@@ -6,11 +6,21 @@
     <link rel="stylesheet" href="styles.css"></link>
 </head>
 <body ng-controller="MainController">
-    
-    {{thisAppIsBroken}}
-    
+
+    <!-- {{getData()}} -->
+    <h1>USERS</h1>
+    <div class="data-wrapper">
+      <div class='data-container' ng-repeat='data in getData' ng-class="{favorite: data.isFavorite}">
+        <img src="{{data.avatar}}" alt="" /><br>
+      {{data.first_name}}--{{data.last_name}}
+        <!-- {"id":2,"first_name":"oscar","last_name":"bluth","avatar":"https://s3.amazonaws.com/uifaces/faces/twitter/olegpogodaev/128.jpg"}] -->
+        <button type="button" name="button" ng-click='toggleFavorite(data.id)'>Favorite</button>
+      </div>
+    </div>
+
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
-     <script src="app.js"></script>
-     <script src="controller.js"></script>
+     <script src="./app.js"></script>
+     <script src="./controller.js"></script>
+     <script src="./mainService.js"></script>
 </body>
 </html>
